@@ -27,34 +27,6 @@
                     //-----------------------------------------------------------
                 }
             });
-            // -------------------
-            var jsonStructureObject = [{
-                head: 'Sundut ke-1',
-                id: 'aa',
-                contents: 'RAJA PANGGABEAN',
-                children: [
-                    {
-                        head: 'Sundut ke-2',
-                        id: 'a1',
-                        contents: 'Lumban Ratus'
-                    },
-                    {
-                        head: 'Sundut ke-2',
-                        id: 'a2',
-                        contents: 'Simorangkir',
-                        children: [
-                            { head: 'Sundut ke-3', id: 'a21', contents: 'Ompu Tumambor' },
-                            { head: 'Sundut ke-3', id: 'a22', contents: 'Ompu Raja Hobol 1' }
-                        ]
-                    },
-                    {
-                        head: 'Sundut ke-2',
-                        id: 'a3',
-                        contents: 'Lumban Siagian'
-                    }
-                ]
-            }];
-            //-----------
             $("#tree").jHTree({
                 callType: 'obj',
                 structureObj: jsonStructureObject
