@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dynamic Family Tree/Organization Chart Plugin Example</title>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href="Themes/smoothness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+    <link href="CSS/jHTree.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jQuery.jHTree.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            $("#tree").jHTree({
+                callType: 'url',
+                url: 'data/myJsonFile.json',
+                nodeDropComplete: function (event, data) {
+                    //----- Do Something @ Server side or client side -----------
+                    //alert("Node ID: " + data.nodeId + " Parent Node ID: " + data.parentNodeId);
+                    //-----------------------------------------------------------
+                }
+            });
+            // -------------------
+            var jsonStructureObject = [{
+                head: 'Sundut ke-1',
+                id: 'aa',
+                contents: 'RAJA PANGGABEAN',
+                children: [
+                    {
+                        head: 'Sundut ke-2',
+                        id: 'a1',
+                        contents: 'Lumban Ratus'
+                    },
+                    {
+                        head: 'Sundut ke-2',
+                        id: 'a2',
+                        contents: 'Simorangkir',
+                        children: [
+                            { head: 'Sundut ke-3', id: 'a21', contents: 'Ompu Tumambor' },
+                            { head: 'Sundut ke-3', id: 'a22', contents: 'Ompu Raja Hobol 1' }
+                        ]
+                    },
+                    {
+                        head: 'Sundut ke-2',
+                        id: 'a3',
+                        contents: 'Lumban Siagian'
+                    }
+                ]
+            }];
+            //-----------
+            $("#tree").jHTree({
+                callType: 'obj',
+                structureObj: jsonStructureObject
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        body {
+            background-color: #fafafa;
+            font-family: 'Roboto';
+        }
+
+        .container {
+            margin: 150px auto;
+            max-width: 960px;
+        }
+
+        #themes {
+            font-size: 1.2em;
+        }
+
+        #set {
+            border: 2px solid #ddd;
+            padding: 2px;
+            background: #444;
+            width: 350px;
+            height: 30px;
+        }
+
+        #set a {
+            margin: 2px;
+            border: 1px solid #444;
+            float: left;
+        }
+
+        #set a:hover {
+            border-color: #fff;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#themes a').click(function () {
+                var theme = $(this).attr('href');
+                $('head').append('<link href="' + theme + '" rel="Stylesheet" type="text/css" />');
+                return false;
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>SILSILAH RAJA PANGGABEAN</h1>
+        <div id="tree">
+
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+
+</html>
